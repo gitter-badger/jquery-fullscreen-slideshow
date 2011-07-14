@@ -118,7 +118,7 @@
         	// Randomly set animationFlag to either 0, 1 or 2 or 3
         	// Note: probability is 50% that it will be a zoom animatiob, 50% it will be slide animation
             var animationFlag = Math.floor(Math.random() * 4);
-            console.log(animationFlag);
+
             if (animationFlag <= 1) {
             	_adjustBGAndZoom(callback);
             } else if (animationFlag == 2) {
