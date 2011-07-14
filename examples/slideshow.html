@@ -1,68 +1,32 @@
-<!doctype html>
-<html lang="en">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-	<meta charset="utf-8" />
-	<style>
-	    body { font-family: Helvetica, Arial, sans-serif; }
-	    .container {
-	        width: 90%;
-	        margin: 20px auto;
-	        background-color: #FFF;
-	        padding: 20px;
-	    }
-	    pre { border: 1px solid #CCC; background-color: #EEE; color: #333; padding: 10px; }
-	</style>
+	<title>jQuery Fullscreen Slideshow</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<script type="text/javascript" src="../lib/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="../jquery.fullscreen.slideshow.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Slideshow Demo</h1>
-        <p>This demonstrates a commonly-asked question: how do I use Backstretch to create a slideshow of background images?</p>
-        <pre><code>
-&lt;script src=&quot;../lib/jquery-1.6.2.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;../jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    // Create an array of images that you'd like to use
-    var images = [
-        &quot;pot-holder.jpg&quot;,
-        &quot;coffee.jpg&quot;
-    ];
-    // The index variable will keep track of which image is currently showing
-    var index = 0;
 
-    // Call backstretch for the first time,
-    // In this case, I'm settings speed of 500ms for a fadeIn effect between images.
-    $.backstretch(images[index], {speed: 500});
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$.slideshow(
+		[
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/126/custom/12659_1600x1200-wallpaper-cb1267902321.jpg",
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/200/custom/20004_1600x1200-wallpaper-cb1276104501.jpg",
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/187/custom/18728_1280x1024-wallpaper-cb1273013536.jpg",
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/368/custom/36897_1600x1200-wallpaper-cb1309385534.jpg",		 
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/014/custom/1438_1280x1024-wallpaper-cb1267711342.jpg",
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/259/custom/25981_1600x1200-wallpaper-cb1284650592.jpg",
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/360/custom/36084_1600x1200-wallpaper-cb1309955282.jpg",
+		 "http://images.nationalgeographic.com/wpf/media-live/photos/000/368/custom/36874_1600x1200-wallpaper-cb1309465550.jpg",
+		]);
+	
+});	
+</script>
 
-    // Set an interval that increments the index and sets the new image
-    // Note: The fadeIn speed set above will be inherited
-    setInterval(function() {
-        index = (index &gt;= images.length - 1) ? 0 : index + 1;
-        $.backstretch(images[index]);
-    }, 5000);
-&lt;/script&gt;
-        </code></pre>
-    </div>
-	<script src="../lib/jquery-1.6.2.min.js"></script>
-	<script src="../jquery.backstretch.min.js"></script>
-	<script>
-	    // Create an array of images that you'd like to use
-        var images = [
-            "pot-holder.jpg",
-            "coffee.jpg"
-        ];
-        // The index variable will keep track of which image is currently showing
-        var index = 0;
-        
-        // Call backstretch for the first time,
-        // In this case, I'm settings speed of 500ms for a fadeIn effect between images.
-        $.backstretch(images[index], {speed: 500});
-        
-        // Set an interval that increments the index and sets the new image
-        // Note: The fadeIn speed set above will be inherited
-        setInterval(function() {
-            index = (index >= images.length - 1) ? 0 : index + 1;
-            $.backstretch(images[index]);
-        }, 5000);
-    </script>
 </body>
+
 </html>
