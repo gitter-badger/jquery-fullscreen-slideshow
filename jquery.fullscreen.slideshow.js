@@ -101,6 +101,11 @@
                 
                 // Attach the settings
                 container.data("settings", settings);
+                
+                $(img).error(function () {
+                	// whoops, image error, continue with callback
+					if(typeof callback == "function") callback();
+            	});
                     
                 img.attr("src", src); // Hack for IE img onload event
                 // Adjust the background size when the window is resized or orientation has changed (iOS)
@@ -124,7 +129,7 @@
             
         }
         
-        // adjust bg and apply zoom animation
+        // Adjust bg and apply zoom animation
         function _adjustBGAndZoom(callback) {
         	try {
         		
@@ -132,11 +137,11 @@
                 var zoomOffset = 250;
                 var totalZoomOffset = zoomOffset * 2;
                 
-                // Next need to calculate these values depending on the image orientation
+                // Need to calculate these values for image animation
                 var initialWidth, initialHeight, initialTop, initialLeft = 0;
                 var finalWidth, finalHeight, finalTop, finalLeft = 0;
                 
-                // choose best effect based on browser window size and image ratio
+                // Choose best effect based on browser window size and image ratio
                 if ((rootElement.width() / imgRatio) >= rootElement.height()) {
                 
                 	// Calculate initial width (image width + total zoom offset)
@@ -181,7 +186,7 @@
 	                
                 }
                 
-                // show image and start animation, callback called once animation is done
+                // Show image and start animation, callback called once animation is done
                 _showAndAnimate(initialTop, initialLeft, initialWidth, initialHeight, {height: finalHeight, width: finalWidth, top: finalTop, left: finalLeft}, callback);
                 
             } catch(err) {
@@ -191,7 +196,7 @@
             
         }
         
-        // adjust bg and apply slide down or left to right animation
+        // Adjust bg and apply slide down or left to right animation
         function _adjustBGAndSlideDownOrLeftToRight(callback) {
         	try {
         		
@@ -199,10 +204,10 @@
                 var slideOffset = 250;
                 var totalSlideOffset = slideOffset * 2;
                 
-                // Next need to calculate these values depending on the image orientation
+                // Need to calculate these values for image animation
                 var initialWidth, initialHeight, initialTop, initialLeft = 0;
                 
-                // choose best effect based on browser window size and image ratio
+                // Choose best effect based on browser window size and image ratio
                 if ((rootElement.width() / imgRatio) >= rootElement.height()) {
                 	
                 	// Slide down effect
@@ -239,7 +244,7 @@
 	                    
                 } 
                 
-                // show image and start animation, callback called once animation is done
+                // Show image and start animation, callback called once animation is done
                 _showAndAnimate(initialTop, initialLeft, initialWidth, initialHeight, {height: initialHeight + 'px', width: initialWidth + 'px', top: '0px', left: '0px'}, callback);
                 
             } catch(err) {
@@ -249,7 +254,7 @@
             
         }
         
-        // adjust bg and apply slide up or right to left animation
+        // Adjust bg and apply slide up or right to left animation
         function _adjustBGAndSlideUpOrRightToLeft(callback) {
         	try {
         		
@@ -257,11 +262,11 @@
                 var slideOffset = 250;
                 var totalSlideOffset = slideOffset * 2;
                 
-                // Next need to calculate these values depending on the image orientation
+                // Need to calculate these values for image animation
                 var initialWidth, initialHeight, initialTop, initialLeft = 0;
                 var finalTop, finalLeft = 0;
                 
-                // choose best effect based on browser window size and image ratio
+                // Choose best effect based on browser window size and image ratio
                 if ((rootElement.width() / imgRatio) >= rootElement.height()) {
                 	
                 	// Slide up effect
@@ -297,7 +302,7 @@
                     finalLeft = "-" + (bgOffset - slideOffset) + "px";
                 } 
                 
-                // show image and start animation, callback called once animation is done
+                // Show image and start animation, callback called once animation is done
                 _showAndAnimate(initialTop, initialLeft, initialWidth, initialHeight, {height: initialHeight + 'px', width: initialWidth + 'px', top: finalTop, left: finalLeft}, callback);
                 
             } catch(err) {
@@ -332,7 +337,7 @@
         }
         
         
-        // adjust bg for normal fading
+        // Adjust bg for normal fading - keeping this for reference
         function _adjustBG(fn) {
             try {
                 bgCSS = {left: 0, top: 0}
