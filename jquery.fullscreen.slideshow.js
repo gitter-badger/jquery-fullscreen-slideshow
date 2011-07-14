@@ -202,7 +202,6 @@
         		
         		// Slide offset is an extra 250px
                 var slideOffset = 250;
-                var totalSlideOffset = slideOffset * 2;
                 
                 // Need to calculate these values for image animation
                 var initialWidth, initialHeight, initialTop, initialLeft = 0;
@@ -260,7 +259,6 @@
         		
         		// Slide offset is an extra 250px
                 var slideOffset = 250;
-                var totalSlideOffset = slideOffset * 2;
                 
                 // Need to calculate these values for image animation
                 var initialWidth, initialHeight, initialTop, initialLeft = 0;
