@@ -12,7 +12,7 @@
 	
 	$.slideshow = function(images, options) {
 		var settings = {
-            slideshowSpeed: 2000 // speed between image transitions
+            slideshowSpeed: 3000 // speed between image transitions
         }
         
         // Extend the settings with those the user has provided
